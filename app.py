@@ -7,13 +7,13 @@ Original file is located at
     https://colab.research.google.com/drive/1sMsT_3u5lpVWcmUkSQ9YvzuYwRJ4RG6i
 """
 
-!pip install ipywidgets
+#!pip install ipywidgets
 
 # Google drive
 from google.colab import drive
 drive.mount('/content/drive')
 
-pip install streamlit streamlit-folium
+#pip install streamlit streamlit-folium
 
 import streamlit as st
 import pandas as pd
