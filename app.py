@@ -20,7 +20,7 @@ import pandas as pd
 import folium
 from folium.plugins import MarkerCluster
 import requests
-from ipywidgets import interact, widgets, Dropdown, IntSlider, VBox
+#from ipywidgets import interact, widgets, Dropdown, IntSlider, VBox
 from IPython.display import display
 
 # Load and clean dataset
