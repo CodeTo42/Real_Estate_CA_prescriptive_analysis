@@ -10,8 +10,8 @@ Original file is located at
 #!pip install ipywidgets
 
 # Google drive
-from google.colab import drive
-drive.mount('/content/drive')
+#from google.colab import drive
+#drive.mount('/content/drive')
 
 #pip install streamlit streamlit-folium
 
