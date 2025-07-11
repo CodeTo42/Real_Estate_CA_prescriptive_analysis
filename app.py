@@ -35,7 +35,7 @@ city_zip_dict = costar_df.groupby("City")["Zip"].unique().apply(list).to_dict()
 # UI widgets
 selected_city = st.selectbox("Select a city",sorted(city_zip_dict.keys()))
 selected_zip= st.selectbox("Select the Zip",sorted(city_zip_dict[selected_city]))
-min_size_slider = st.slider(
+min_size = st.slider(
     "Min Size (SF)",
     min_value=50000,
     max_value=1500000,
@@ -43,7 +43,7 @@ min_size_slider = st.slider(
     step=10000
 )
 
-min_parking_slider = st.slider(
+min_parking = st.slider(
     "Min Parking",
     min_value=0,
     max_value=1000,
