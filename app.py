@@ -32,10 +32,29 @@ costar_df["City"] = costar_df["City"].astype(str).str.title().str.strip()
 city_zip_dict = costar_df.groupby("City")["Zip"].unique().apply(list).to_dict()
 
 # UI widgets
-city_dropdown = Dropdown(options=sorted(city_zip_dict.keys()), description="City:")
-zip_dropdown = Dropdown(description="ZIP Code:")
-min_size_slider = IntSlider(value=50000, min=50000, max=1500000, step=10000, description="Min Size (SF):")
-min_parking_slider = IntSlider(value=50, min=0, max=1000, step=50, description="Min Parking:")
+city_dropdown = st.selectbox(
+    "Select a city",
+    options=sorted(city_zip_dict.keys())
+)
+zip_dropdown = st.selectbox(
+    "Select the Zip",
+    options=sorted(city_zip_dict[city_dropdown])
+)
+min_size_slider = st.slider(
+    "Min Size (SF)",
+    min_value=50000,
+    max_value=1500000,
+    value=50000,
+    step=10000
+)
+
+min_parking_slider = st.slider(
+    "Min Parking",
+    min_value=0,
+    max_value=1000,
+    value=50,
+    step=50
+)
 
 # Update ZIPs based on city
 def update_zip_options(change):
