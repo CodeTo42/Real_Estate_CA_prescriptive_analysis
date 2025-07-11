@@ -19,6 +19,7 @@ import streamlit as st
 import pandas as pd
 import folium
 from folium.plugins import MarkerCluster
+import streamlit.components.v1 as components
 import requests
 #from ipywidgets import interact, widgets, Dropdown, IntSlider, VBox
 from IPython.display import display
@@ -121,7 +122,8 @@ def filter_and_display(selected_city, selected_zip, min_size, min_parking):
         """
         m.get_root().html.add_child(folium.Element(legend_html))
 
-    display(m)
+    map_html = m._repr_html_()
+    components.html(map_html, height=600, scrolling=False)
 
 # Arrange widgets vertically
 
