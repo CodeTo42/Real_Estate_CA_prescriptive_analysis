@@ -61,7 +61,7 @@ def update_zip_options(change):
     selected_city = change["new"]
     zip_dropdown.options = city_zip_dict.get(selected_city, [])
 
-city_dropdown.observe(update_zip_options, names='value')
+#city_dropdown.observe(update_zip_options, names='value')
 update_zip_options({'new': city_dropdown.value})  # initialize
 
 # Dashboard logic
