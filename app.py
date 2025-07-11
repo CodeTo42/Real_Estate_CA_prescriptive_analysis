@@ -62,12 +62,12 @@ st.write(f"Filters applied:\nCity: {city_selected}, ZIP: {zip_selected}, Min Siz
 #update_zip_options({'new': city_dropdown.value})  # initialize
 # Dashboard logic
 #def filter_and_display(selected_city, selected_zip, min_size, min_parking):
-    df = costar_df[
-        (costar_df["City"] == selected_city) &
-        (costar_df["Zip"] == selected_zip) &
-        (costar_df["Total Available Space (SF)"] >= min_size) &
-        (costar_df["Number Of Parking Spaces"] >= min_parking)
-    ]
+df = costar_df[
+     (costar_df["City"] == selected_city) &
+     (costar_df["Zip"] == selected_zip) &
+     (costar_df["Total Available Space (SF)"] >= min_size) &
+     (costar_df["Number Of Parking Spaces"] >= min_parking)
+     ]
 
     m = folium.Map(location=[36.7783, -119.4179], zoom_start=7, tiles="OpenStreetMap")
 
