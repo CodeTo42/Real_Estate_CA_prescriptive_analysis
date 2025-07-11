@@ -128,10 +128,10 @@ def filter_and_display(selected_city, selected_zip, min_size, min_parking):
 #display(dashboard_widgets)
 
 # Bind interactive function
-interact(
-    filter_and_display,
+#interact(
+    filter_and_display(
     selected_city=city_dropdown,
     selected_zip=zip_dropdown,
     min_size=min_size_slider,
     min_parking=min_parking_slider
-);
+)
