@@ -24,7 +24,7 @@ import requests
 from IPython.display import display
 
 # Load and clean dataset
-costar_df = pd.read_csv("/content/drive/MyDrive/Capstone/Costar_GEO_CLEANED_CA.csv")
+costar_df = pd.read_csv("Costar_GEO_CLEANED_CA.csv")
 costar_df["Zip"] = costar_df["Zip"].astype(str).str.strip().str[:5]
 costar_df["City"] = costar_df["City"].astype(str).str.title().str.strip()
 
