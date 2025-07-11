@@ -56,7 +56,7 @@ min_parking_slider = st.slider(
  #   selected_city = change["new"]
   #  zip_dropdown.options = city_zip_dict.get(selected_city, [])
 
-st.write(f"Filters applied:\nCity: {city_selected}, ZIP: {zip_selected}, Min Size: {min_size}, Min Parking: {min_parking}")
+#st.write(f"Filters applied:\nCity: {city_selected}, ZIP: {zip_selected}, Min Size: {min_size}, Min Parking: {min_parking}")
 
 #city_dropdown.observe(update_zip_options, names='value')
 #update_zip_options({'new': city_dropdown.value})  # initialize
