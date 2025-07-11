@@ -22,7 +22,7 @@ from folium.plugins import MarkerCluster
 import streamlit.components.v1 as components
 import requests
 #from ipywidgets import interact, widgets, Dropdown, IntSlider, VBox
-from IPython.display import display
+#from IPython.display import display
 
 # Load and clean dataset
 costar_df = pd.read_csv("Costar_GEO_CLEANED_CA.csv")
@@ -33,14 +33,8 @@ costar_df["City"] = costar_df["City"].astype(str).str.title().str.strip()
 city_zip_dict = costar_df.groupby("City")["Zip"].unique().apply(list).to_dict()
 
 # UI widgets
-city_dropdown = st.selectbox(
-    "Select a city",
-    options=sorted(city_zip_dict.keys())
-)
-zip_dropdown = st.selectbox(
-    "Select the Zip",
-    options=sorted(city_zip_dict[city_dropdown])
-)
+selected_city = st.selectbox("Select a city",sorted(city_zip_dict.keys()))
+selected_zip= st.selectbox("Select the Zip",sorted(city_zip_dict[selected_city]))
 min_size_slider = st.slider(
     "Min Size (SF)",
     min_value=50000,
@@ -58,16 +52,16 @@ min_parking_slider = st.slider(
 )
 
 # Update ZIPs based on city
-def update_zip_options(change):
-    selected_city = change["new"]
-    zip_dropdown.options = city_zip_dict.get(selected_city, [])
+#def update_zip_options(change):
+ #   selected_city = change["new"]
+  #  zip_dropdown.options = city_zip_dict.get(selected_city, [])
 
-#st.write(f"Filters applied:\nCity: {city_selected}, ZIP: {zip_selected}, Min Size: {min_size}, Min Parking: {min_parking}")
+st.write(f"Filters applied:\nCity: {city_selected}, ZIP: {zip_selected}, Min Size: {min_size}, Min Parking: {min_parking}")
 
 #city_dropdown.observe(update_zip_options, names='value')
 #update_zip_options({'new': city_dropdown.value})  # initialize
 # Dashboard logic
-def filter_and_display(selected_city, selected_zip, min_size, min_parking):
+#def filter_and_display(selected_city, selected_zip, min_size, min_parking):
     df = costar_df[
         (costar_df["City"] == selected_city) &
         (costar_df["Zip"] == selected_zip) &
@@ -131,9 +125,9 @@ def filter_and_display(selected_city, selected_zip, min_size, min_parking):
 
 # Bind interactive function
 #interact(
-    filter_and_display(
-    selected_city=city_dropdown,
-    selected_zip=zip_dropdown,
-    min_size=min_size_slider,
-    min_parking=min_parking_slider
-)
+#    filter_and_display(
+#    selected_city=city_dropdown,
+#    selected_zip=zip_dropdown,
+#    min_size=min_size_slider,
+#    min_parking=min_parking_slider
+#)
