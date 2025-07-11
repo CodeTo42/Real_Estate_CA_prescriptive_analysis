@@ -77,10 +77,10 @@ folium.GeoJson
 (
     {"type": "FeatureCollection", "features": ca_shape},
     style_function=lambda x: {
-    "fillColor": "#ffffff00",
-    "color": "black",
-    "weight": 1.5,
-    "fillOpacity": 0.1,
+        "fillColor": "#ffffff00",
+        "color": "black",
+        "weight": 1.5,
+        "fillOpacity": 0.1,
     }
 ).add_to(m)
 cluster = MarkerCluster().add_to(m)
