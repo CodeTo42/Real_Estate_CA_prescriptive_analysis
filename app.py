@@ -73,8 +73,7 @@ m = folium.Map(location=[36.7783, -119.4179], zoom_start=7, tiles="OpenStreetMap
 ca_url = "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json"
 ca_geo = requests.get(ca_url).json()
 ca_shape = [f for f in ca_geo["features"] if f["properties"]["name"] == "California"]
-folium.GeoJson
-(
+folium.GeoJson(
     {"type": "FeatureCollection", "features": ca_shape},
     style_function=lambda x: {
         "fillColor": "#ffffff00",
@@ -85,8 +84,7 @@ folium.GeoJson
 ).add_to(m)
 cluster = MarkerCluster().add_to(m)
 for _, row in df.iterrows():
-    popup = folium.Popup
-    (
+    popup = folium.Popup(
         f"<b>{row.get('Property Name', 'Unnamed')}</b><br>"
         f"Address: {row.get('Property Address', '')}<br>"
         f"Rent: ${row['Rent']}<br>"
@@ -94,8 +92,7 @@ for _, row in df.iterrows():
         f"Parking: {row['Number Of Parking Spaces']}",
         max_width=300
     )
-folium.Marker
-(
+folium.Marker(
     location=[row["Latitude"], row["Longitude"]],
     popup=popup,
     icon=folium.Icon(color='darkblue', icon='industry', prefix='fa', icon_color='yellow')
